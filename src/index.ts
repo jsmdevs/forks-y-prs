@@ -8,6 +8,16 @@ class Product {
   id: number;
   name: string;
   price: number;
+
+  static findProductsBelow(price: number) {
+    const listProducts = [];
+    products.find((product) => {
+      if (product.price <= price) {
+        listProducts.push(product);
+      }
+    });
+    return listProducts;
+  }
 }
 
 class User {
@@ -20,9 +30,7 @@ class User {
     this.products.push(newProduct);
   }
   addProducts(newProducts: Product[]) {
-    // esto no funciona:
-    this.products.push(newProducts);
-    // pista: push no suma muchos items (agrega de a uno)
+    newProducts.map((product) => this.products.push(product));
   }
 }
 
