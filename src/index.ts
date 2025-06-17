@@ -10,12 +10,7 @@ class Product {
   price: number;
 
   static findProductsBelow(price: number) {
-    const listProducts = [];
-    products.find((product) => {
-      if (product.price <= price) {
-        listProducts.push(product);
-      }
-    });
+    const listProducts = products.filter((product) => product.price <= price); 
     return listProducts;
   }
 }
